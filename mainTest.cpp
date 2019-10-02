@@ -5,7 +5,7 @@
 #include "ide_listener.h"
 #include "xml_listener.h"
 #include "cute_runner.h"
-#include "calculator.h"
+#include "calculator/calculator.h"
 
 void test_one_plus_one_from_stream() {
     std::istringstream input{"1+1"};

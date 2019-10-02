@@ -4,7 +4,7 @@ project(calculator)
 set(CMAKE_CXX_STANDARD 17)
 
 # specify library calculator
-add_library(calculator_lib calculator.cpp)
+add_library(calculator_lib calculator/calculator.cpp)
 
 # build calculator executable
 add_executable(calculator main.cpp)

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "calculator.h"
+#include "calculator/calculator.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
