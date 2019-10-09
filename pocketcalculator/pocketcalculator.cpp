@@ -40,7 +40,8 @@ void pocketcalculator(std::istream &in, std::ostream &out) {
             int result = executeCalc(input);
             printResult(result, out);
         } catch (const std::invalid_argument &ia) {
-            out << "Your input seems to have an invalid format, please use format: <operand><operator><operand>\n";
+            printError(out);
+            out << "Your input seems to have an invalid format, please use format: <operand><operator><operand>\n\n";
         }
     }
     out << "Leaving calculator... See you!\n";
