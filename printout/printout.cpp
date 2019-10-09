@@ -23,7 +23,7 @@ std::vector<std::string> resolve7SectorDigitByInt(int digit) {
             return number::seven;
         case 8:
             return number::eight;
-        case 9:ü
+        case 9:
             return number::nine;
         default:
             return number::zero;
