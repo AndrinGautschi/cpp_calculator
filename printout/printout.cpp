@@ -5,6 +5,8 @@
 
 std::vector<std::string> resolve7SectorDigitByInt(int digit) {
     switch (digit) {
+        case -1:
+            return number::minus;
         case 0:
             return number::zero;
         case 1:
@@ -31,6 +33,7 @@ std::vector<std::string> resolve7SectorDigitByInt(int digit) {
 }
 
 int resolveIntFromChar(char numericChar) {
+    if (numericChar == '-') return -1;
     return numericChar - '0';
 }
 
