@@ -4,7 +4,9 @@ project(calculator)
 set(CMAKE_CXX_STANDARD 17)
 
 # specify library calculator
-add_library(calculator_lib calculator/calculator.cpp)
+add_library(calculator_lib
+        calculator/calculator.cpp
+        printout/printout.cpp printout/number.h)
 
 # build calculator executable
 add_executable(calculator main.cpp)
@@ -12,5 +14,10 @@ target_link_libraries(calculator calculator_lib)
 
 # build calculator test executable
 include_directories(../libs/cute)
-add_executable(calculator_test mainTest.cpp)
+add_executable(calculator_test test/calculatorTest.cpp)
 target_link_libraries(calculator_test calculator_lib)
+
+# build printout test executable
+include_directories(../libs/cute)
+add_executable(printout_test test/printoutTest.cpp)
+target_link_libraries(printout_test calculator_lib)
