@@ -1,14 +1,10 @@
-//
-// Created by Andrin Gautschi on 09.10.19.
-//
-
 #ifndef CALCULATOR_NUMBER_H
 #define CALCULATOR_NUMBER_H
 
 #include <vector>
 #include <string>
 
-namespace number {
+namespace RenderedDigit {
     const int amount_of_lines = 5;
     const int length_of_line = 3;
 
@@ -87,6 +83,27 @@ namespace number {
             "| |",
             " - ",
             "  |",
+            " - "
+    };
+    const std::vector<std::string> big_e = {
+            "---",
+            "|  ",
+            "|- ",
+            "|  ",
+            "---"
+    };
+    const std::vector<std::string> small_r = {
+            "   ",
+            "   ",
+            " --",
+            "|  ",
+            "|  "
+    };
+    const std::vector<std::string> small_o = {
+            "   ",
+            "   ",
+            " - ",
+            "| |",
             " - "
     };
 }
