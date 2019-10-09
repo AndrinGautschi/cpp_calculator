@@ -1,10 +1,7 @@
 #include <iostream>
-#include "calculator/calculator.h"
-#include "printout/printout.h"
+#include "pocketcalculator/pocketcalculator.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    std::cout << calc(3,3,'+');
-    printLargeDigit(5, std::cout);
+    pocketcalculator(std::cin, std::cout);
     return 0;
 }

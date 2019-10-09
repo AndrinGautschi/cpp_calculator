@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 # specify library calculator
 add_library(calculator_lib
         calculator/calculator.cpp
-        printout/printout.cpp printout/number.h)
+        printout/printout.cpp
+        pocketcalculator/pocketcalculator.cpp)
 
 # build calculator executable
 add_executable(calculator main.cpp)
