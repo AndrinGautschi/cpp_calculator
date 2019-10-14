@@ -7,18 +7,6 @@
 #include "cute_runner.h"
 #include "../calculator/calculator.h"
 
-void test_one_plus_one_from_stream() {
-    std::istringstream input{"1+1"};
-    auto result = calc(input);
-    ASSERT_EQUAL(2, result);
-}
-
-void test_division_from_stream() {
-    std::istringstream input{"95/5"};
-    auto result = calc(input);
-    ASSERT_EQUAL(19, result);
-}
-
 void test_one_plus_one() {
     auto result = calc(1, 1, '+');
     ASSERT_EQUAL(2, result);
@@ -64,8 +52,6 @@ void test_modulo_two_by_zero() {
 
 bool runAllTests(int argc, char const *argv[]) {
     cute::suite s{};
-    s.push_back(CUTE(test_one_plus_one_from_stream));
-    s.push_back(CUTE(test_division_from_stream));
     s.push_back(CUTE(test_one_plus_one));
     s.push_back(CUTE(test_one_plus_minus_one));
     s.push_back(CUTE(test_one_minus_minus_one));

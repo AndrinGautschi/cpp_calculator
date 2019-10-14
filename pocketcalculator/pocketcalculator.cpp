@@ -5,6 +5,8 @@
 #include "../calculator/calculator.h"
 #include "../printout/printout.h"
 
+#define MAX_RESULT_LENGTH 8
+
 int readNumberFromStream(std::istringstream &in) {
     int number;
     in >> number;
@@ -17,12 +19,28 @@ char readOperatorFromStream(std::istringstream &in) {
     return op;
 }
 
+bool endOfLine(std::istringstream &in) {
+    std::string test;
+    in >> test;
+    return test.empty();
+}
+
 int executeCalc(const std::string &input) {
     std::istringstream stringStream(input);
     int firstNumber = readNumberFromStream(stringStream);
     char op = readOperatorFromStream(stringStream);
     int secondNumber = readNumberFromStream(stringStream);
-    return calc(firstNumber, secondNumber, op);
+    if (!endOfLine(stringStream)) {
+        throw std::invalid_argument("Only integers are valid inputs");
+    }
+
+    auto result = calc(firstNumber, secondNumber, op);
+    auto resultLength = std::to_string(result).length();
+    if (result >= 0) resultLength++;
+    if (resultLength > MAX_RESULT_LENGTH) {
+        throw std::invalid_argument("The result has too many digits!");
+    }
+    return result;
 }
 
 void printResult(int number, std::ostream &out) {
