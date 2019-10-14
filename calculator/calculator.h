@@ -3,6 +3,4 @@
 
 int calc(int lhs, int rhs, char op);
 
-int calc(std::istream & in);
-
 #endif //TESTAT1_CALCULATOR_H
