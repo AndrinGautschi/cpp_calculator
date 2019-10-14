@@ -50,6 +50,16 @@ void test_modulo_two_by_zero() {
     ASSERT_THROWS(calc(2, 0, '%'), std::invalid_argument);
 }
 
+void testPrintLargeNumber() {
+    std::ostringstream output{};
+    printLargeNumber(0, output);
+    ASSERT_EQUAL(" - \n"
+                 "| |\n"
+                 "   \n"
+                 "| |\n"
+                 " - \n", output.str());
+}
+
 void testPrintLargeDigitZero() {
     std::ostringstream output{};
     printLargeDigit(0, output);
@@ -107,6 +117,7 @@ bool runAllTests(int argc, char const *argv[]) {
     s.push_back(CUTE(testPrintLargeDigitMinusOneThreeFour));
     s.push_back(CUTE(test_one_plus_one_from_stream));
     s.push_back(CUTE(test_division_from_stream));
+    s.push_back(CUTE(testPrintLargeNumber));
     cute::xml_file_opener xmlfile(argc, argv);
     cute::xml_listener<cute::ide_listener<>> lis(xmlfile.out);
     auto runner{cute::makeRunner(lis, argc, argv)};

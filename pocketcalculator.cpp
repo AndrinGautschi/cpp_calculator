@@ -58,7 +58,7 @@ void pocketcalculator(std::istream &in, std::ostream &out) {
             int result = executeCalc(input);
             printResult(result, out);
         } catch (const std::invalid_argument &ia) {
-            printError(out);
+            printLargeError(out);
             out << "Your input seems to have an invalid format, please use format: <operand><operator><operand>\n\n";
         }
     }

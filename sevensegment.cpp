@@ -186,6 +186,6 @@ void printLargeNumber(int i, std::ostream &out) {
     printLargeDigit(i, out);
 }
 
-void printError(std::ostream &out) {
+void printLargeError(std::ostream &out) {
     printFromString("Error", out);
 }
