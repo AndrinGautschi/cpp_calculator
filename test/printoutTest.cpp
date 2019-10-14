@@ -4,7 +4,7 @@
 #include "ide_listener.h"
 #include "xml_listener.h"
 #include "cute_runner.h"
-#include "../printout/printout.h"
+#include "../printout/sevensegment.h"
 
 void testPrintLargeDigitZero() {
     std::ostringstream output{};
