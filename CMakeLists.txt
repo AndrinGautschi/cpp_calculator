@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 # specify library calculator
 add_library(calculator_lib
-        calculator/calculator.cpp
+        calculator/calc.cpp
         printout/sevensegment.cpp
         pocketcalculator/pocketcalculator.cpp)
 
