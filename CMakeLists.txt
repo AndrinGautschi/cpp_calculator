@@ -17,8 +17,3 @@ target_link_libraries(calculator calculator_lib)
 include_directories(../libs/cute)
 add_executable(calculator_test test/calculatorTest.cpp)
 target_link_libraries(calculator_test calculator_lib)
-
-# build printout test executable
-include_directories(../libs/cute)
-add_executable(printout_test test/printoutTest.cpp)
-target_link_libraries(printout_test calculator_lib)

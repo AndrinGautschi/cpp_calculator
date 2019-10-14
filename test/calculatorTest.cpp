@@ -6,6 +6,7 @@
 #include "xml_listener.h"
 #include "cute_runner.h"
 #include "../calculator/calc.h"
+#include "../printout/sevensegment.h"
 
 void test_one_plus_one() {
     auto result = calc(1, 1, '+');
@@ -50,6 +51,35 @@ void test_modulo_two_by_zero() {
     ASSERT_THROWS(calc(2, 0, '%'), std::invalid_argument);
 }
 
+void testPrintLargeDigitZero() {
+    std::ostringstream output{};
+    printLargeDigit(0, output);
+    ASSERT_EQUAL(" - \n"
+                 "| |\n"
+                 "   \n"
+                 "| |\n"
+                 " - \n", output.str());
+}
+
+void testPrintLargeDigitOneThreeFour() {
+    std::ostringstream output{};
+    printLargeDigit(134, output);
+    ASSERT_EQUAL("    -    \n"
+                 "  |  || |\n"
+                 "    -  - \n"
+                 "  |  |  |\n"
+                 "    -    \n", output.str());
+}
+void testPrintLargeDigitMinusOneThreeFour() {
+    std::ostringstream output{};
+    printLargeDigit(-134, output);
+    ASSERT_EQUAL("       -    \n"
+                 "     |  || |\n"
+                 "---    -  - \n"
+                 "     |  |  |\n"
+                 "       -    \n", output.str());
+}
+
 bool runAllTests(int argc, char const *argv[]) {
     cute::suite s{};
     s.push_back(CUTE(test_one_plus_one));
@@ -61,6 +91,9 @@ bool runAllTests(int argc, char const *argv[]) {
     s.push_back(CUTE(test_divide_twenty_by_zero));
     s.push_back(CUTE(test_modulo_two_by_two));
     s.push_back(CUTE(test_modulo_two_by_zero));
+    s.push_back(CUTE(testPrintLargeDigitZero));
+    s.push_back(CUTE(testPrintLargeDigitOneThreeFour));
+    s.push_back(CUTE(testPrintLargeDigitMinusOneThreeFour));
     cute::xml_file_opener xmlfile(argc, argv);
     cute::xml_listener<cute::ide_listener<>> lis(xmlfile.out);
     auto runner{cute::makeRunner(lis, argc, argv)};
