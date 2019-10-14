@@ -40,7 +40,7 @@ int calc(int lhs, int rhs, char op) {
         case '%':
             return modulo(lhs, rhs);
         default:
-            throw std::invalid_argument("not a valid operation");;
+            throw std::invalid_argument("not a valid operation");
     }
 }
 
