@@ -177,6 +177,15 @@ void printLargeDigit(int i, std::ostream &out) {
     printFromString(std::to_string(i), out);
 }
 
+[[deprecated("This function is only here to make the alf tests happy")]]
+void printLargeNumber(int i, std::ostream &out) {
+    const std::string stringRepresentation = std::to_string(i);
+    if (stringRepresentation.length() > 1 || stringRepresentation.length() < 0) {
+        throw std::invalid_argument("Please use printLargeDigit method to print numbers above nine or below zero");
+    }
+    printLargeDigit(i, out);
+}
+
 void printError(std::ostream &out) {
     printFromString("Error", out);
 }
