@@ -1,6 +1,20 @@
 #include <iostream>
 #include <stdexcept>
 
+[[deprecated("This function is only here to make the alf tests happy")]]
+int readNumberFromStream(std::istream & in) {
+    int number;
+    in >> number;
+    return number;
+}
+
+[[deprecated("This function is only here to make the alf tests happy")]]
+char readOperatorFromStream(std::istream & in) {
+    char op;
+    in >> op;
+    return op;
+}
+
 int add(int number1, int number2) {
     return number1 + number2;
 }
@@ -42,5 +56,14 @@ int calc(int lhs, int rhs, char op) {
         default:
             throw std::invalid_argument("not a valid operation");
     }
+}
+
+[[deprecated("This function is only here to make the alf tests happy")]]
+int calc(std::istream & in) {
+    int firstNumber = readNumberFromStream(in);
+    char op = readOperatorFromStream(in);
+    int secondNumber = readNumberFromStream(in);
+
+    return calc(firstNumber, secondNumber, op);
 }
 
