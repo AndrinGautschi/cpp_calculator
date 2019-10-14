@@ -1,6 +1,5 @@
 #include <cstdlib>
 #include <stdexcept>
-#include <iostream>
 #include "cute.h"
 #include "ide_listener.h"
 #include "xml_listener.h"
@@ -80,6 +79,18 @@ void testPrintLargeDigitMinusOneThreeFour() {
                  "       -    \n", output.str());
 }
 
+void test_one_plus_one_from_stream() {
+    std::istringstream input{"1+1"};
+    auto result = calc(input);
+    ASSERT_EQUAL(2, result);
+}
+
+void test_division_from_stream() {
+    std::istringstream input{"95/5"};
+    auto result = calc(input);
+    ASSERT_EQUAL(19, result);
+}
+
 bool runAllTests(int argc, char const *argv[]) {
     cute::suite s{};
     s.push_back(CUTE(test_one_plus_one));
@@ -94,6 +105,8 @@ bool runAllTests(int argc, char const *argv[]) {
     s.push_back(CUTE(testPrintLargeDigitZero));
     s.push_back(CUTE(testPrintLargeDigitOneThreeFour));
     s.push_back(CUTE(testPrintLargeDigitMinusOneThreeFour));
+    s.push_back(CUTE(test_one_plus_one_from_stream));
+    s.push_back(CUTE(test_division_from_stream));
     cute::xml_file_opener xmlfile(argc, argv);
     cute::xml_listener<cute::ide_listener<>> lis(xmlfile.out);
     auto runner{cute::makeRunner(lis, argc, argv)};
