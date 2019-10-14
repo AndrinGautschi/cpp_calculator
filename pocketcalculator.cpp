@@ -2,8 +2,8 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
-#include "../calculator/calc.h"
-#include "../printout/sevensegment.h"
+#include "calc.h"
+#include "sevensegment.h"
 
 #define MAX_RESULT_LENGTH 8
 

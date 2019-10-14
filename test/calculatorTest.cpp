@@ -4,8 +4,8 @@
 #include "ide_listener.h"
 #include "xml_listener.h"
 #include "cute_runner.h"
-#include "../calculator/calc.h"
-#include "../printout/sevensegment.h"
+#include "../calc.h"
+#include "../sevensegment.h"
 
 void test_one_plus_one() {
     auto result = calc(1, 1, '+');

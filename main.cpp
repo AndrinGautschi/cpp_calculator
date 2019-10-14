@@ -1,5 +1,5 @@
 #include <iostream>
-#include "pocketcalculator/pocketcalculator.h"
+#include "pocketcalculator.h"
 
 int main() {
     pocketcalculator(std::cin, std::cout);
