@@ -70,21 +70,21 @@ void testPrintLargeDigitZero() {
                  " - \n", output.str());
 }
 
-void testPrintLargeDigitOneThreeFour() {
+void testPrintLargeNumberOneThreeFour() {
     std::ostringstream output{};
-    printLargeDigit(134, output);
+    printLargeNumber(134, output);
     ASSERT_EQUAL("    -    \n"
                  "  |  || |\n"
                  "    -  - \n"
                  "  |  |  |\n"
                  "    -    \n", output.str());
 }
-void testPrintLargeDigitMinusOneThreeFour() {
+void testPrintLargeNumberMinusOneThreeFour() {
     std::ostringstream output{};
-    printLargeDigit(-134, output);
+    printLargeNumber(-134, output);
     ASSERT_EQUAL("       -    \n"
                  "     |  || |\n"
-                 "---    -  - \n"
+                 " -     -  - \n"
                  "     |  |  |\n"
                  "       -    \n", output.str());
 }
@@ -113,8 +113,8 @@ bool runAllTests(int argc, char const *argv[]) {
     s.push_back(CUTE(test_modulo_two_by_two));
     s.push_back(CUTE(test_modulo_two_by_zero));
     s.push_back(CUTE(testPrintLargeDigitZero));
-    s.push_back(CUTE(testPrintLargeDigitOneThreeFour));
-    s.push_back(CUTE(testPrintLargeDigitMinusOneThreeFour));
+    s.push_back(CUTE(testPrintLargeNumberOneThreeFour));
+    s.push_back(CUTE(testPrintLargeNumberMinusOneThreeFour));
     s.push_back(CUTE(test_one_plus_one_from_stream));
     s.push_back(CUTE(test_division_from_stream));
     s.push_back(CUTE(testPrintLargeNumber));

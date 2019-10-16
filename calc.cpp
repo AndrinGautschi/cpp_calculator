@@ -5,6 +5,7 @@
 int readNumberFromStream(std::istream & in) {
     int number;
     in >> number;
+    if(!in) throw std::invalid_argument("could not read a number where a number was excepted");
     return number;
 }
 
@@ -12,6 +13,7 @@ int readNumberFromStream(std::istream & in) {
 char readOperatorFromStream(std::istream & in) {
     char op;
     in >> op;
+    if(!in) throw std::invalid_argument("could not read an operation where an operation was excepted");
     return op;
 }
 

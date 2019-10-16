@@ -10,12 +10,14 @@
 int readNumberFromStream(std::istringstream &in) {
     int number;
     in >> number;
+    if(!in) throw std::invalid_argument("could not read a number where a number was excepted");
     return number;
 }
 
 char readOperatorFromStream(std::istringstream &in) {
     char op;
     in >> op;
+    if(!in) throw std::invalid_argument("could not read an operation where an operation was excepted");
     return op;
 }
 
@@ -44,23 +46,22 @@ int executeCalc(const std::string &input) {
 }
 
 void printResult(int number, std::ostream &out) {
-    printLargeDigit(number, out);
+    printLargeNumber(number, out);
 }
 
 void pocketcalculator(std::istream &in, std::ostream &out) {
     while (true) {
+        if (!in.good()) break;
         std::string input;
-        out << "What do you want to calculate?\n";
         std::getline(in, input);
 
         if (input == "q") break;
+        if (input.length() == 0) continue;
         try {
             int result = executeCalc(input);
             printResult(result, out);
         } catch (const std::invalid_argument &ia) {
             printLargeError(out);
-            out << "Your input seems to have an invalid format, please use format: <operand><operator><operand>\n\n";
         }
     }
-    out << "Leaving calculator... See you!\n";
 }

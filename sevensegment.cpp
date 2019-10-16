@@ -9,7 +9,7 @@ namespace RenderedDigit {
     const std::vector<std::string> minus = {
             "   ",
             "   ",
-            "---",
+            " - ",
             "   ",
             "   "
     };
@@ -84,18 +84,18 @@ namespace RenderedDigit {
             " - "
     };
     const std::vector<std::string> big_e = {
-            "---",
+            " - ",
             "|  ",
-            "|- ",
+            " - ",
             "|  ",
-            "---"
+            " - "
     };
     const std::vector<std::string> small_r = {
             "   ",
             "   ",
-            " --",
+            " - ",
             "|  ",
-            "|  "
+            "   "
     };
     const std::vector<std::string> small_o = {
             "   ",
@@ -173,17 +173,16 @@ void printFromString(const std::string &text, std::ostream &out) {
     printVector(buildSignVectorRepresentation(text), out);
 }
 
+[[deprecated("This function is only here to make the alf tests happy")]]
 void printLargeDigit(int i, std::ostream &out) {
+    if (i < 0 || i > 9) {
+        throw std::invalid_argument("Please use printLargeDigit method to print numbers above nine or below zero");
+    }
     printFromString(std::to_string(i), out);
 }
 
-[[deprecated("This function is only here to make the alf tests happy")]]
 void printLargeNumber(int i, std::ostream &out) {
-    const std::string stringRepresentation = std::to_string(i);
-    if (stringRepresentation.length() > 1 || stringRepresentation.length() < 0) {
-        throw std::invalid_argument("Please use printLargeDigit method to print numbers above nine or below zero");
-    }
-    printLargeDigit(i, out);
+    printFromString(std::to_string(i), out);
 }
 
 void printLargeError(std::ostream &out) {
