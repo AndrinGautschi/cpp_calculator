@@ -7,20 +7,6 @@
 
 #define MAX_RESULT_LENGTH 8
 
-int readNumberFromStream(std::istringstream &in) {
-    int number;
-    in >> number;
-    if(!in) throw std::invalid_argument("could not read a number where a number was excepted");
-    return number;
-}
-
-char readOperatorFromStream(std::istringstream &in) {
-    char op;
-    in >> op;
-    if(!in) throw std::invalid_argument("could not read an operation where an operation was excepted");
-    return op;
-}
-
 bool endOfLine(std::istringstream &in) {
     std::string test;
     in >> test;

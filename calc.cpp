@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stdexcept>
 
-[[deprecated("This function is only here to make the alf tests happy")]]
 int readNumberFromStream(std::istream & in) {
     int number;
     in >> number;
@@ -9,7 +8,6 @@ int readNumberFromStream(std::istream & in) {
     return number;
 }
 
-[[deprecated("This function is only here to make the alf tests happy")]]
 char readOperatorFromStream(std::istream & in) {
     char op;
     in >> op;
